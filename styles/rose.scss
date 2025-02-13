@@ -1,0 +1,92 @@
+$stem-color: #1E5631;
+$petal-color: #760D28;
+$leaf-color: #A7C957;
+$glow-color : #FFD700;
+$stem-width: 5px;
+$petal-size: 20px;
+$leaf-size: 15px;
+
+@import 'buttons'; // Import button styles
+
+.rose {
+    @extend .rose-button; // Inherit button-like behavior
+}
+
+.stem {
+    background-color: $stem-color;
+    width: $stem-width;
+    height: 100px;
+}
+
+.petals {
+    background-color: $petal-color;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); // Soft glow for elegance
+    width: $petal-size;
+    height: $petal-size;
+    border-radius: 60% 60% 4% 60%;
+    left: 20px;
+    top: -6px;
+}
+
+.leaves {
+    background-color: $leaf-color;
+    width: $leaf-size;
+    height: $leaf-size;
+	border-radius: 0 70px;
+    box-shadow: 0px 0px 10px rgba(167, 201, 87, 0.6); // Soft green glow
+}
+.leaf-left {
+    left: -10px;
+    top: 30px;
+    transform: rotate(-30deg);
+}
+.leaf-right {
+    right: -10px;
+    top: 30px;
+    transform: rotate(30deg);
+}
+
+// Petal positioning
+.petal-1 { top: 0; left: 10px; }
+.petal-2 { top: 5px; right: 10px; }
+.petal-3 { top: 15px; left: 0px; }
+.petal-4 { top: 15px; right: 0px; }
+
+// Center (middle part of the rose)
+.center {
+    background-color: darken($petal-color, 10%);
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+}
+
+// Glow effect when clicked
+.rose.clicked .petals {
+    box-shadow: 0px 0px 20px $glow-color;
+    animation: glow 0.8s ease-in-out;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0px 0px 5px $glow-color; }
+    50% { box-shadow: 0px 0px 15px $glow-color; }
+    100% { box-shadow: 0px 0px 5px $glow-color; }
+}
+.stem,
+.petals,
+.leaves {
+    position: relative;
+    cursor: pointer;
+    &:hover::after {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        background: rgba(255, 255, 0, 0.5);
+        border-radius: 50%;
+        z-index: -1;
+    }
+}

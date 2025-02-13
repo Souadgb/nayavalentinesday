@@ -1,0 +1,16 @@
+.rose-button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    outline: none;
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+}
+

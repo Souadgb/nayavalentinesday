@@ -1,0 +1,37 @@
+.message-container {
+    .message-container {
+        position: relative;
+        width: 300px; // Adjust based on your PNG size
+        height: 200px; // Adjust as needed
+        background: url("./images/paper.png") no-repeat center center;
+        background-size: contain; // Make sure it fits properly
+        display: none; // Hidden initially
+        margin-top: 20px;
+    }
+}
+.message {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: #760D28;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    margin-top: 10px;
+}
+
+// When active, make it visible
+.message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+// When the message appears
+.message-container.show {
+    display: block;
+}
+
+.message.show {
+    opacity: 1;
+}
